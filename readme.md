@@ -2,4 +2,4 @@
 
 ## IAM (Identity Access Management)
 
-## EC2 Basics
+## EC2 Basics (Elastic Compute Cloud)

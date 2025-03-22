@@ -37,6 +37,28 @@ Can be mounted to one instance at a time at CCP level.
 Locked to an availability zone(AZ) for example EBS volume in us-east-1a cannot be attached to us-east-1b, need to snapshot it to move a volume across.
 
 One EBS cannot attach to 2 EC2 instances whereas 2 EBS can attach to single EC2 instance.
+**Exception**: For EBS io1/io2 family same EBS volume can attach to multiple EC2 instances (But only possible for 1 AZ instances) (Upto 16 instances at a time).
+
+### EBS Volumes Types:
+* gp2 / gp3 SSD: Balanced Price and performance.
+* io1/io2 Block Express (SSD): Highest Perfromance SSD (Good for low latency task).
+* st 1 (HDD): Low cost, frequently accessed.
+* sc 1 (HDD): Lowest cost, less frequently accessed.
+
+  Only gp2 / gp3 SSD and io1/io2 Block Express (SSD) can be used as Boot volumnes. (Where root OS will store)
+
+## AMI Amazon Machine Image (Region Sepcific)
+Customization of an EC2 instance, you can add your software, configuration,and others.
+Types of AMI to launch EC2 instance:
+A Public AMI
+Your own AMI
+An AWS Marketplace AMI
+
+## EFS Elastic File System
+It is a Managed NFS (netwrk file system), a centralized system. Highly available, high performance.
+Only Compatable with Linux based AMI not with windows.
+Multipe EC2 instances from varios region can connect to the same EFS.
+
 
 
 

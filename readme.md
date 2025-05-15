@@ -59,6 +59,37 @@ It is a Managed NFS (netwrk file system), a centralized system. Highly available
 Only Compatable with Linux based AMI not with windows.
 Multipe EC2 instances from varios region can connect to the same EFS.
 
+## SUMMARY
+													                            AWS Storage
+														                              |
+														                              |
+				-------------------------------------------------------------------------------------------
+				|										                        |											                        |
+				Block									                    Object							                            File
+	[Most demanding, high-performing workloads]			  |								                              Servers sharing a network
+	Eg: SAP, Microsoft, Oracle								        |											                        |
+				|										                        |											                        |
+				--- 1. Instance store						            S3											                      EFS
+				---- Cached storage						              ---- Simple storage service						        ---- Serverless file storage
+				---- Data releases on reload				        ---- Can store any type of data					      ---- For Linux Servers
+				|										                        ---- high durability (can keep for years)			|
+				----2. EBS								                  ---- data that requires a copy					      FSx
+				---- Like hard disk in PC																                                  ---- Windows Servers
+				---- Data remains after reload
+ 
+
+
+#### EBS : 
+1. Attached to one instance at a time (except io1/io2)
+2. are locked at the AZ level ( cannot attach to an instance of AZ2)
+3. To migrate an EBS volume across AZ, take a snapshot and restore the snapshot in another AZ.
+4. Terminates if EC2 instance terminates, to prevent disable in settings.
+
+#### EFS:
+1. Mounting 100s of instances across AZ
+2. Higher price point than EBS
+
+
 
 
 
